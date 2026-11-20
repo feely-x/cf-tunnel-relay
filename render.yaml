@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: cf-tunnel-relay
+    runtime: node
+    plan: free
+    buildCommand: npm install --omit=dev
+    startCommand: node server.js
+    envVars:
+      - key: TUNNEL_TOKEN
+        sync: false
+    healthCheckPath: /health
